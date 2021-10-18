@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+// Broadcast receiver
+// Triggered by the alarm manager to send a notification when the user-defined timer is up
+
 package com.example.android.eggtimernotifications.receiver
 
 import android.app.NotificationManager
@@ -29,7 +32,7 @@ class AlarmReceiver: BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         // TODO: Step 1.10 [Optional] remove toast
-//        Toast.makeText(context, context.getText(R.string.eggs_ready), Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context, context.getText(R.string.eggs_ready), Toast.LENGTH_SHORT).show()
 
         // TODO: Step 1.9 add call to sendNotification
         val notificationManager = ContextCompat.getSystemService(
@@ -41,7 +44,6 @@ class AlarmReceiver: BroadcastReceiver() {
             context.getText(R.string.eggs_ready).toString(),
             context
         )
-
     }
 
 }

@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+// Broadcast receiver
+// Handles user click to snooze the notification
+
 package com.example.android.eggtimernotifications.receiver
 
 import android.app.AlarmManager
@@ -48,9 +51,10 @@ class SnoozeReceiver: BroadcastReceiver() {
             notifyPendingIntent
         )
 
+        // SnoozeReceiver will schedule a new notification but also removed the snoozed notification
         val notificationManager = ContextCompat.getSystemService(
-                context,
-                NotificationManager::class.java
+            context,
+            NotificationManager::class.java
         ) as NotificationManager
         notificationManager.cancelAll()
     }

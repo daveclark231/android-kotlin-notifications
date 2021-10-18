@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// Contains binding adapters to enable data binding between the app UI and the ViewModel
+
 package com.example.android.eggtimernotifications.util
 
 import android.text.format.DateUtils

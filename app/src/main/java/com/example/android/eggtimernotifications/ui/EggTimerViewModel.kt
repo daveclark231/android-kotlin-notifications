@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
+// Responsible for starting and cancelling the timer and for other Lifecycle related tasks
+
 package com.example.android.eggtimernotifications.ui
 
 import android.app.*
@@ -119,12 +121,19 @@ class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
                 }
                 val triggerTime = SystemClock.elapsedRealtime() + selectedInterval
 
-                // TODO: Step 1.15 call cancel notification
-                val notificationManager =
-                    ContextCompat.getSystemService(
-                        app,
-                        NotificationManager::class.java
-                    ) as NotificationManager
+                // Removed the started timer notification to limit notifications to user
+//                // Step 1.5 get an instance of NotificationManager and call sendNotification
+//                val notificationManager = ContextCompat.getSystemService(
+//                    app,
+//                    NotificationManager::class.java
+//                ) as NotificationManager
+//                notificationManager.sendNotification(app.getString(R.string.timer_running), app)
+
+                // Step 1.15 call cancel notification
+                val notificationManager = ContextCompat.getSystemService(
+                    app,
+                    NotificationManager::class.java
+                ) as NotificationManager
                 notificationManager.cancelNotifications()
 
                 AlarmManagerCompat.setExactAndAllowWhileIdle(
